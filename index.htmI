@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SKR Samadhan</title>
+<style>
+body{font-family:Arial;margin:0;background:#f4f7fb}
+header{background:#0b5ed7;color:white;padding:25px;text-align:center}
+.container{max-width:650px;margin:25px auto;padding:20px}
+.card{background:white;padding:25px;border-radius:15px}
+input,textarea,select{width:100%;padding:12px;margin:8px 0 15px;box-sizing:border-box}
+button{width:100%;padding:14px;background:#0b5ed7;color:white;border:0;border-radius:8px;font-size:17px}
+.whatsapp{display:block;text-align:center;background:#25D366;color:white;padding:14px;margin-top:15px;text-decoration:none;border-radius:8px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>SKR Samadhan</h1>
+<p>गांव की समस्याओं और शिकायतों के समाधान के लिए ऑनलाइन पोर्टल</p>
+</header>
+
+<div class="container">
+<div class="card">
+<h2>📝 शिकायत दर्ज करें</h2>
+
+<form onsubmit="sendComplaint(event)">
+
+<label>नाम</label>
+<input id="name" required placeholder="अपना नाम लिखें">
+
+<label>मोबाइल नंबर</label>
+<input id="mobile" required placeholder="मोबाइल नंबर">
+
+<label>समस्या की श्रेणी</label>
+<select id="category" required>
+<option value="">श्रेणी चुनें</option>
+<option>सड़क</option>
+<option>पानी</option>
+<option>बिजली</option>
+<option>सफाई</option>
+<option>नाली</option>
+<option>सरकारी योजना</option>
+<option>अन्य</option>
+</select>
+
+<label>शिकायत / समस्या</label>
+<textarea id="complaint" rows="6" required placeholder="अपनी समस्या लिखें"></textarea>
+
+<button type="submit">शिकायत WhatsApp पर भेजें</button>
+</form>
+
+<a class="whatsapp" href="https://wa.me/917839576119" target="_blank">
+📱 WhatsApp से सीधे संपर्क करें
+</a>
+
+<p style="text-align:center">
+<b>अधिकारी: Mr Sha@ni</b>
+</p>
+
+</div>
+</div>
+
+<script>
+function sendComplaint(e){
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let mobile=document.getElementById("mobile").value;
+let category=document.getElementById("category").value;
+let complaint=document.getElementById("complaint").value;
+
+let message=
+"SKR Samadhan शिकायत\n\n"+
+"नाम: "+name+"\n"+
+"मोबाइल: "+mobile+"\n"+
+"श्रेणी: "+category+"\n"+
+"समस्या: "+complaint;
+
+window.open(
+"https://wa.me/917839576119?text="+encodeURIComponent(message),
+"_blank"
+);
+}
+</script>
+
+</body>
+</html>
